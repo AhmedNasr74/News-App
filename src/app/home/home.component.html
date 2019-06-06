@@ -1,0 +1,25 @@
+<button (click)="toggle()" class="btn btn-primary text-center">Toggle</button>
+
+<table class="table m-auto w-75">
+
+  <thead>
+    <th>Index</th>
+    <th>Name</th>
+    <th>Age</th>
+    <th>Salary</th>
+    <th>Date Of Birht</th>
+    <th>Gander</th>
+  </thead>
+
+  <tbody *ngIf="tabletoggle">
+      <tr *ngFor="let c of clients; let i = index">
+        <td>{{++i}}</td>
+        <td>{{c.name|uppercase|ganderTitle:c.gander}}</td><!--Pipe [uppercase , lowercase]-->
+        <td>{{c.age}}</td>
+        <td>{{c.salary|currency:'EUR':true}}</td>
+        <td>{{c.dateOfBirth}}</td>
+        <td>{{c.gander}}</td>
+      </tr>
+  </tbody>
+
+</table>

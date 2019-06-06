@@ -1,0 +1,25 @@
+<div class="container text-center">
+
+  <ul class="nav nav-pills nav-fill my-5 bg-dark">
+    <li class="nav-item" *ngFor="let c of countries">
+      <a class="nav-link text-danger" (click)="changCode(c)">{{c}}</a>
+    </li>
+  </ul>
+
+
+  <div class="row">
+      <input type="search" class="my-4 form-control" placeholder="Search for your artical" [(ngModel)]='term'>
+    <div *ngFor="let news of NewsContainer|search:term" class="col-sm-4">
+      <a [href]="news.url" target='_blank'>
+      <div class="newsitem m-1">
+        <img [src]="news.urlToImage" class="img-fluid" alt="">
+        <div class="layer">
+          <h4>{{news.title}}</h4>
+          <p>{{news.description}}</p>
+          <p>{{news.source.name}}</p>
+        </div>
+      </div>
+     </a>
+    </div>
+  </div>
+</div>
